@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
 import Home from './pages';
 import About from './pages/about';
-import Tutorial from './pages/tutorial';
+import Create from './pages/create';
 import SignUp from './pages/signup';
 import Search from './pages/search';
 
@@ -14,11 +14,11 @@ function App() {
     <Router>
     <Navbar />
     <Routes>
-      <Route exact path='/' exact element={<Home />} />
-      <Route exact path='/about' exact element={<About />} />
-      <Route exact path='/search' exact element={<Search />} />
-      <Route exact path='/tutorial' exact element={<Tutorial />} />
-      <Route exact path='/sign-up' exact element={<SignUp />} />
+      <Route exact path='/' element={<Home />} />
+      <Route exact path='/about' element={<About />} />
+      <Route exact path='/search' element={<Search />} />
+      <Route exact path='/create' element={<Create />} />
+      <Route exact path='/sign-up' element={<SignUp />} />
     </Routes>
     </Router>
   );

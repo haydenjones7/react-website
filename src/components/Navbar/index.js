@@ -7,7 +7,7 @@ const Navbar = () => {
       <>
          <Nav>
             <NavMenu>
-               <img src={logo} alt="logo" height="75" width="75"/>
+               <img src={logo} alt="logo" height="65" width="65"/>
                <NavLink to="" activeStyle>
                   <Bars/> 
                   Home
@@ -20,9 +20,9 @@ const Navbar = () => {
                   <SearchIcon/>
                   Search
                </NavLink>
-               <NavLink to="/tutorial" activeStyle>
+               <NavLink to="/create" activeStyle>
                   <Toolbox/>
-                  Tutorial
+                  Create
                </NavLink>
                <NavLink to="/sign-up" activeStyle>
                   <Signin/>

@@ -10,7 +10,7 @@ import { FaToolbox } from "react-icons/fa";
 
 export const Nav = styled.nav`
    background: #79C0AC;
-   height: 85px;
+   height: 65px;
    display: flex;
    justify-content: space-between;
    padding: 0.2rem calc((100vw - 1000px) / 2);
@@ -26,9 +26,13 @@ export const NavLink = styled(Link)`
    height: 100%;
    cursor: pointer;
    &.active {
-      color:#4d4dff;
+      color:#1E443F;
+   }
+   &:hover {
+      color:#eeb7b3;
    }
 `;
+
 
 export const Bars = styled(FaBars)`
    display: flex;
@@ -124,6 +128,6 @@ export const NavMenu = styled.div`
    /* width: 100vw; */
    /* white-space: 100vw; */
    @media screen and (max-width: 768px) {
-      display: none;
+      display: flex;
    }
 `;

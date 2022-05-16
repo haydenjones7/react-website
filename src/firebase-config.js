@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAF8ExMHA1-TESmgJDYeVzCQj7DtyVUcfQ",
-    authDomain: "auth-production-21219.firebaseapp.com",
-    projectId: "auth-production-21219",
-    storageBucket: "auth-production-21219.appspot.com",
-    messagingSenderId: "9502892813",
-    appId: "1:9502892813:web:28d55011eff6c9ebec0644"
+  apiKey: "AIzaSyDv-ViRiwlNKukYUMBnfDdcAFoRCRBLDOM",
+  authDomain: "brainbox-aaa8a.firebaseapp.com",
+  projectId: "brainbox-aaa8a",
+  storageBucket: "brainbox-aaa8a.appspot.com",
+  messagingSenderId: "937716920944",
+  appId: "1:937716920944:web:134da92e03f0480ef53ab5"
   }; //if publishing use env vars
 
   const app = initializeApp(firebaseConfig);
