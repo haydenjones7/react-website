@@ -13,21 +13,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +20,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  color: #2B625B;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 105%;
+}
+
+.page h1 {
+  font-size: 48px;
+}
+
+.page p {
+  line-height: 1.5;
+}
+
+h2 {
+  color: #2B625B;
 }

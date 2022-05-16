@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, NavLink, NavMenu, Bars, SearchIcon, ReadMe, Signin, User, Toolbox } from "./NavbarElements";
-import logo from './BBLogoZoom.jpg';
+import logo from './BBLogoTransparent.png';
 
 const Navbar = () => {
    return (

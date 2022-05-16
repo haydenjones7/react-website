@@ -9,9 +9,11 @@ import { FaToolbox } from "react-icons/fa";
 
 
 export const Nav = styled.nav`
-   background: #79C0AC;
-   height: 65px;
+   background: #A1D2C4;
+   height: 4rem;
    display: flex;
+   font-size: 1.25rem;
+   font-weight: bold;
    justify-content: space-between;
    padding: 0.2rem calc((100vw - 1000px) / 2);
    z-index: 12;
@@ -23,13 +25,13 @@ export const NavLink = styled(Link)`
    align-items: center;
    text-decoration: none;
    padding: 0 1rem;
-   height: 100%;
+   height: 2rem;
    cursor: pointer;
    &.active {
-      color:#1E443F;
+      color:  black;
    }
    &:hover {
-      color:#eeb7b3;
+      background:#eeb7b3;
    }
 `;
 
@@ -121,7 +123,6 @@ export const Toolbox = styled(FaToolbox)`
 export const NavMenu = styled.div`
    display: flex;
    align-items: center;
-   margin-right: -24px;
    /* Second Nav */
    /* margin-right: 24px; */
    /* Third Nav */
