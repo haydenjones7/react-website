@@ -13,6 +13,7 @@ export const Nav = styled.nav`
    height: 4rem;
    display: flex;
    font-size: 1.25rem;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-weight: bold;
    justify-content: space-between;
    padding: 0.2rem calc((100vw - 1000px) / 2);
@@ -28,10 +29,10 @@ export const NavLink = styled(Link)`
    height: 2rem;
    cursor: pointer;
    &.active {
-      color:  black;
+      color: black;
    }
    &:hover {
-      background:#eeb7b3;
+      background: #eeb7b3;
    }
 `;
 

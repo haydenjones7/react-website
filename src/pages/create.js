@@ -3,7 +3,7 @@ import React from "react";
 const Create = () => {
    return (
       <h1>
-         This page is where you'll create games!
+         Create a New Game!
       </h1>
    );
 };
