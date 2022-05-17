@@ -1,13 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { createUserWithEmailAndPassword,
-onAuthStateChanged,
 signOut,
 signInWithEmailAndPassword,
 } from 'firebase/auth';
 import '../App.css';
 import {auth} from '../firebase-config';
-import {Heading, Text, Button, Input} from '../styles/PageElements.js';
+import {Heading, Button, Input} from '../styles/PageElements.js';
 import {ClearButton} from '../styles/AccountElements.js';
 
 function Login() {
@@ -19,14 +18,6 @@ function Login() {
 
   const [showLogin, setShowLogin] = useState(true);
   const [showRegisterError, setShowRegisterError] = useState(false);
-
-  // user currently logged in
-  const [user, setUser] = useState({});
-
-  // user logs into other acct or signs out
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
 
   const register = async () => {
     try {
@@ -100,7 +91,8 @@ function Login() {
         </div>
         <div>
           <Input 
-            className="login-form-field" 
+            className="login-form-field"
+            type="password" 
             placeholder="Password..." 
             onChange={(event) => {
               setRegisterPassword(event.target.value);
@@ -118,8 +110,6 @@ function Login() {
       )}
       
       <div className="signout">
-        <h4> User Logged In: </h4>
-        {user?.email} {" "}
         <div>
           <Button onClick={logout}> Sign Out </Button>
         </div>

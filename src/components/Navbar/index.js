@@ -31,23 +31,23 @@ const Navbar = () => {
          <Nav>
             <NavMenu>
                <img src={logo} alt="logo" height="65" width="65"/>
-               <NavLink to="" activeStyle>
+               <NavLink to="">
                   <Bars/> 
                   Home
                </NavLink>
-               <NavLink to="/about" activeStyle>
+               <NavLink to="/about">
                   <ReadMe/>
                   About
                </NavLink>
-               <NavLink to="/search" activeStyle>
+               <NavLink to="/search">
                   <SearchIcon/>
                   Search
                </NavLink>
-               <NavLink to="/create" activeStyle>
+               <NavLink to="/create">
                   <Toolbox/>
                   Create
                </NavLink>
-               <NavLink to="/account" activeStyle>
+               <NavLink to="/account">
                   <User/>
                   {username}
                </NavLink>

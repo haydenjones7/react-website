@@ -7,13 +7,11 @@ import '../../logos/socketLogo.png';
 function Footer() {
    return (
       <div className="footer">
-         <footer>
-            <div>
-               <p>
-                  Built with React &copy; 2022
-               </p>
-            </div>
-         </footer>
+         <div>
+            <p>
+               Built with React &copy; 2022
+            </p>
+         </div>
       </div>
    );
 }

@@ -9,6 +9,10 @@ import Create from './pages/create';
 import Account from './pages/account';
 import Search from './pages/search';
 import Footer from './components/Footer/footer.jsx';
+import CreateMC from './components/CreateGames/createMC';
+import CreateSA from "./components/CreateGames/createSA";
+import CreatePTR from "./components/CreateGames/createPTR";
+import CreatePDR from "./components/CreateGames/createPDR";
 
 
 function App() {
@@ -22,8 +26,12 @@ function App() {
             <Route exact path='/' element={<Home />} />
             <Route exact path='/about' element={<About />} />
             <Route exact path='/search' element={<Search />} />
-            <Route exact path='/create' element={<Create />} />
+            <Route exact path='/create' element={<Create />}/>
             <Route exact path='/account' element={<Account />} />
+            <Route exact path='/createMC' element={<CreateMC />}/>
+            <Route exact path='/createSA' element={<CreateSA />}/>
+            <Route exact path='/createPTR' element={<CreatePTR />}/>
+            <Route exact path='/createPDR' element={<CreatePDR />}/>
           </Routes>
         </div>
       </div>

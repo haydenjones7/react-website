@@ -1,11 +1,75 @@
 import React from "react";
+import styled from "styled-components";
+import { useState } from "react";
+import { auth } from '../firebase-config';
+import { onAuthStateChanged } from "firebase/auth";
+import { Title, Heading, Button } from '../styles/PageElements';
+import { Link } from 'react-router-dom';
+
+import Login from "./login.js";
+
+const Wrapper = styled.section`
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+   `;
+   const PinkButton = styled(Button)`
+      background-color: #e58f89;
+      color: #ffffff;
+      width: 65%;
+      height: 50px;
+      font-size: 25px;
+      border-radius: 10px;
+      border: 4px solid #d7544a;
+      margin-bottom: 5px;
+      &:hover {
+         background-color: #b7726d;
+      }
+   `;
+   const PinkTitle = styled(Title)`
+      color: #d7544a;
+   `;
+   const BlackHeading = styled(Heading)`
+      color: black;
+   `;
+   const ButtonLink = styled(Link)`
+      color: #ffffff;
+      text-decoration: none;
+      &:hover {
+         background-color: #b7726d;
+      }
+   `;
 
 const Create = () => {
-   return (
-      <h1>
-         Create a New Game!
-      </h1>
-   );
+
+   const [user, setUser] = useState({});
+
+   onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+   });
+
+   if(!user) {
+      return (
+         <div>
+            <Heading>You must be a user to create a game.</Heading>
+            <Login></Login>
+         </div>
+      );
+   } else {
+      return (
+         <div>
+            <PinkTitle>Create a New Game💏</PinkTitle>
+            <BlackHeading>Choose a game format</BlackHeading>
+            <Wrapper>
+               <PinkButton><ButtonLink to='/createMC'>Multiple Choice Quiz</ButtonLink></PinkButton>
+               <PinkButton><ButtonLink to='/createSA'>Short Answer Quiz</ButtonLink></PinkButton>
+               <PinkButton><ButtonLink to='/createPTR'>PTR Game</ButtonLink></PinkButton>
+               <PinkButton><ButtonLink to='/createPDR'>PDR Game</ButtonLink></PinkButton>
+            </Wrapper>
+         </div>
+      );
+   }
 };
 
 export default Create;

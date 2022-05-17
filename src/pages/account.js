@@ -4,7 +4,7 @@ import { useState } from "react";
 import { auth } from '../firebase-config';
 import { signOut, onAuthStateChanged, updateProfile } from 'firebase/auth';
 import { Heading, Text, Input, Button } from '../styles/PageElements.js';
-//add AccountElements.js styles
+import { ClearButton, InlineButtonWrapper } from '../styles/AccountElements.js';
 
 
 const Account = () => {
@@ -35,6 +35,10 @@ const Account = () => {
       }
    };
 
+   const handleBack = () => {
+      setShowUpdate(false);
+   }
+
    const handleClick = a => {
       setPhoto(a);
    };
@@ -58,17 +62,21 @@ const Account = () => {
                      setName(event.target.value);
                   } } />
                <Text>Select an avatar</Text>
-               <br />
-               <Button onClick={update}>Save</Button>
+               <div>
+                  <InlineButtonWrapper>
+                     <Button onClick={handleBack}>Back</Button>
+                     <Button onClick={update}>Save</Button>
+                  </InlineButtonWrapper>
+               </div>
             </div>
          );
       } else {
          return (
             <div>
-               <img src={user?.photoURL} />
+               <img src={user?.photoURL} alt="ProfilePhoto" />
                <Heading>Name: {user?.displayName}</Heading>
                <Heading>Email: {user?.email}</Heading>
-               <Button onClick={handleShowUpdate}>Click to edit information</Button>
+               <ClearButton onClick={handleShowUpdate}>Click to edit information</ClearButton>
                <div>
                   <Button onClick={logout}>Sign Out</Button>
                </div>
