@@ -1,10 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
 .App {
   text-align: center;
+  place-items: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+body {
+  background-color: #d6ece6;
+}
+.wrapper {
+  min-height: 45vh;
+  display: grid;
+  place-items: center;
+  margin: 0 1rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,23 +43,10 @@
   }
 }
 
-h1 {
-  color: #2B625B;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 70px;
-  line-height: 105%;
+a {
+  text-decoration: none;
 }
 
-.page h1 {
-  font-size: 48px;
-}
-
-.page p {
-  line-height: 1.5;
-}
-
-h2 {
-  color: #2B625B;
+a:hover {
+  background: #EEB7B3;
 }

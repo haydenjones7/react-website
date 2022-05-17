@@ -3,7 +3,7 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { FaReadme } from "react-icons/fa";
-import { FaSignInAlt } from "react-icons/fa";
+//import { FaSignInAlt } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { FaToolbox } from "react-icons/fa";
 
@@ -41,13 +41,7 @@ export const Bars = styled(FaBars)`
    display: flex;
    color: #2B625B;
    @media screen and (max-width: 768px) {
-      display: block;
-      postition: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 75%);
-      font-size: 1.8rem;
-      cursor: pointer;
+      display: flex;
    }
 `;
 
@@ -55,13 +49,7 @@ export const SearchIcon = styled(FaSearch)`
    display: flex;
    color: #2B625B;
    @media screen and (max-width: 768px) {
-      display: block;
-      postition: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 75%);
-      font-size: 1.8rem;
-      cursor: pointer;
+      display: flex;
    }
 `;
 
@@ -69,41 +57,23 @@ export const ReadMe = styled(FaReadme)`
    display: flex;
    color: #2B625B;
    @media screen and (max-width: 768px) {
-      display: block;
-      postition: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 75%);
-      font-size: 1.8rem;
-      cursor: pointer;
+      display: flex;
    }
 `;
 
-export const Signin = styled(FaSignInAlt)`
-   display: flex;
-   color: #2B625B;
-   @media screen and (max-width: 768px) {
-      display: block;
-      postition: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 75%);
-      font-size: 1.8rem;
-      cursor: pointer;
-   }
-`;
+// export const Signin = styled(FaSignInAlt)`
+//    display: flex;
+//    color: #2B625B;
+//    @media screen and (max-width: 768px) {
+//       display: flex;
+//    }
+// `;
 
 export const User = styled(FaUserAlt)`
    display: flex;
    color: #2B625B;
    @media screen and (max-width: 768px) {
-      display: block;
-      postition: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 75%);
-      font-size: 1.8rem;
-      cursor: pointer;
+      display: flex;
    }
 `;
 
@@ -111,13 +81,7 @@ export const Toolbox = styled(FaToolbox)`
    display: flex;
    color: #2B625B;
    @media screen and (max-width: 768px) {
-      display: block;
-      postition: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 75%);
-      font-size: 1.8rem;
-      cursor: pointer;
+      display: flex;
    }
 `;
 
@@ -131,5 +95,6 @@ export const NavMenu = styled.div`
    /* white-space: 100vw; */
    @media screen and (max-width: 768px) {
       display: flex;
+      font-size: 10px;
    }
 `;

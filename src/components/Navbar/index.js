@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, NavLink, NavMenu, Bars, SearchIcon, ReadMe, Signin, User, Toolbox } from "./NavbarElements";
+import { Nav, NavLink, NavMenu, Bars, SearchIcon, ReadMe, User, Toolbox } from "./NavbarElements";
 import logo from './BBLogoTransparent.png';
 
 const Navbar = () => {
@@ -23,10 +23,6 @@ const Navbar = () => {
                <NavLink to="/create" activeStyle>
                   <Toolbox/>
                   Create
-               </NavLink>
-               <NavLink to="/sign-up" activeStyle>
-                  <Signin/>
-                  Sign up/ Sign in
                </NavLink>
                <NavLink to="/account" activeStyle>
                   <User/>
