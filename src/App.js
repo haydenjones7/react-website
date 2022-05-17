@@ -10,6 +10,7 @@ import Account from './pages/account';
 import Search from './pages/search';
 import Footer from './components/Footer/footer.jsx';
 
+
 function App() {
   return (
     <div className="App">

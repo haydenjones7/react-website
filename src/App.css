@@ -16,7 +16,7 @@ body {
   background-color: #d6ece6;
 }
 .wrapper {
-  min-height: 45vh;
+  min-height: 81vh;
   display: grid;
   place-items: center;
   margin: 0 1rem;

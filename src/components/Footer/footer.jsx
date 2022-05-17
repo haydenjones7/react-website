@@ -1,5 +1,8 @@
 import React from "react";
 import './footer.css';
+import reactLogo from '../../logos/reactLogo.png';
+import '../../logos/firebaseLogo.png';
+import '../../logos/socketLogo.png';
 
 function Footer() {
    return (
@@ -7,7 +10,7 @@ function Footer() {
          <footer>
             <div>
                <p>
-                  Copyright &copy; Our Website 2022
+                  Built with React &copy; 2022
                </p>
             </div>
          </footer>
