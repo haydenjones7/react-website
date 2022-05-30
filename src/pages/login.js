@@ -1,13 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import { createUserWithEmailAndPassword,
-signOut,
 signInWithEmailAndPassword,
 } from 'firebase/auth';
 import '../App.css';
+import styled from "styled-components";
 import {auth} from '../firebase-config';
 import {Heading, Button, Input} from '../styles/PageElements.js';
 import {ClearButton} from '../styles/AccountElements.js';
+
+const Wrapper = styled.section`
+  width: 500px;
+  height: 400px;
+  display: grid;
+  justify-items: center;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px rgb(180, 51, 51);
+`;
 
 function Login() {
 
@@ -44,9 +54,6 @@ function Login() {
     }
   };
 
-  const logout = async () => {
-    await signOut(auth);
-  };
 
   const registerPage = () => {
     setShowLogin(false);
@@ -62,7 +69,7 @@ function Login() {
         </div>
         <div>
           <Input 
-            type="text" 
+            type="email" 
             placeholder="Email..." 
             onChange={(event) => {
               setLoginEmail(event.target.value);
@@ -76,44 +83,47 @@ function Login() {
               setLoginPassword(event.target.value);
             }}/>
         </div>
-        <Button onClick={login}> Login </Button>
+        <Button onClick={login}>Login</Button>
       </div>) : 
-      (<div id = "main-holder">
-        <Heading className="title">Sign up!</Heading>
-        <h4> Register User </h4>
-        <div>
-          <Input 
-            className="login-form-field" 
-            placeholder="Email..." 
-            onChange={(event) => {
-              setRegisterEmail(event.target.value);
-            }}/>
-        </div>
-        <div>
-          <Input 
-            className="login-form-field"
-            type="password" 
-            placeholder="Password..." 
-            onChange={(event) => {
-              setRegisterPassword(event.target.value);
-            }}/>
-        </div>
-        <div>
-          <Button id="login-form-submit" onClick={register}> Create User </Button>
-        </div>
-        {showRegisterError ? (
-              <div className="popup">
-                <p>Invalid Registration</p> 
-              </div>
-        ) : ''}
+      (<div>
+        <Wrapper>
+          <Heading className="title">Sign up!</Heading>
+          <h4> Register User </h4>
+          <div>
+            <Input 
+              className="login-form-field" 
+              type="email"
+              placeholder="Email..." 
+              onChange={(event) => {
+                setRegisterEmail(event.target.value);
+              }}/>
+          </div>
+          <div>
+            <Input 
+              className="login-form-field"
+              type="password" 
+              placeholder="Password..." 
+              onChange={(event) => {
+                setRegisterPassword(event.target.value);
+              }}/>
+          </div>
+          <div>
+            <Button id="login-form-submit" onClick={register}>Create User</Button>
+          </div>
+          {showRegisterError ? (
+                <div className="popup">
+                  <p>Invalid Registration</p> 
+                </div>
+          ) : ''}
+        </Wrapper>
       </div> 
       )}
       
-      <div className="signout">
+      {/* <div className="signout">
         <div>
-          <Button onClick={logout}> Sign Out </Button>
+          <Button onClick={logout}>Sign Out</Button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
