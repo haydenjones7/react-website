@@ -1,5 +1,6 @@
 import React from "react";
 import { Text } from '../../styles/PageElements.js';
+import { auth } from '../../firebase-config';
 import { useState } from "react";
 import { db } from '../../firebase-config';
 import { setDoc, doc } from "firebase/firestore";
@@ -20,7 +21,7 @@ const CreatePR = () => {
    const [question, setQuestion] = useState("");
    const [questionList, setQuestionList] = useState([]);
    const [stop, setStop] = useState(false);
-   const [gameType, setGameType] = useState("");
+   const [gameType, setGameType] = useState("PTR-Game");
    const [backPage, setBackPage] = useState(false);
    const [votingType, setVotingType] = useState("");
    const [instructions, setInstructions] = useState("");
@@ -28,25 +29,63 @@ const CreatePR = () => {
    //maybe shouldnt be a boolean?????
    const [privacy, setPrivacy] = useState(false);
 
+   // const getUserInfo = () => {
+   //    const user = auth.currentUser;
+   //    if(user !== null) {
+   //       setAuthor(user.displayName);
+   //    }
+   // }
+
    const writeData = async () => {
-      try {
-         await setDoc(doc(db, gameType, title), {
-            gameTitle: title,
-            gameAuthor: author,
-            gameQuestions: questionList,
-            numQuestions: numQuestions,
-            gameVotingType: votingType,
-            gameInstructions: instructions,
-            gamePrivacy: privacy
-         });
-         console.log("Document written!");
-         setFirstPage(true);
-         setTitle("");
-         setAuthor("");
-         setNumQuestions("");
-      } catch(e) {
-         //setHostError(true);
-         console.log("Error writing document: ", e);
+      if(privacy) {
+         try {
+            await setDoc(doc(db, author, title), {
+               gameTitle: title,
+               gameAuthor: author,
+               gameQuestions: questionList,
+               numQuestions: numQuestions,
+               gameVotingType: votingType,
+               gameInstructions: instructions,
+               gamePrivacy: privacy
+            });
+            console.log("Private document written!");
+            setFirstPage(true);
+            setTitle("");
+            setNumQuestions("");
+         } catch(e) {
+            //setHostError(true);
+            console.log("Error writing private document: ", e);
+         }
+      } else {
+         console.log("type: ", gameType)
+         try {
+            await setDoc(doc(db, gameType, title), {
+               gameTitle: title,
+               gameAuthor: author,
+               gameQuestions: questionList,
+               numQuestions: numQuestions,
+               gameVotingType: votingType,
+               gameInstructions: instructions,
+               gamePrivacy: privacy
+            });
+            console.log("Public document written!");
+            await setDoc(doc(db, author, title), {
+               gameTitle: title,
+               gameAuthor: author,
+               gameQuestions: questionList,
+               numQuestions: numQuestions,
+               gameVotingType: votingType,
+               gameInstructions: instructions,
+               gamePrivacy: privacy
+            });
+            console.log("User document written!")
+            setFirstPage(true);
+            setTitle("");
+            setNumQuestions("");
+         } catch(e) {
+            //setHostError(true);
+            console.log("Error writing document: ", e);
+         }
       }
    }
 
@@ -57,6 +96,10 @@ const CreatePR = () => {
    const nextPage = () => {
       setFirstPage(false);
       setBackPage(false);
+      const user = auth.currentUser;
+      if(user !== null) {
+         setAuthor(user.displayName);
+      }
    }
 
    const addPage = () => {
@@ -89,13 +132,13 @@ const CreatePR = () => {
                            setTitle(event.target.value);
                         }}
                      />
-                     <CreateInput
+                     {/* <CreateInput
                         type="text"
                         placeholder="Author..."
                         onChange={(event) => {
                            setAuthor(event.target.value);
                         }}
-                     />
+                     /> */}
                      <CreateInput
                         type="text"
                         placeholder="# of Questions..."

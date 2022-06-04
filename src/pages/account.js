@@ -53,10 +53,10 @@ const Account = () => {
       if (showUpdate) {
          return (
             <div>
-               <Text>Enter your name!</Text>
+               <Text>Create a username!</Text>
                <Input
                   type="text"
-                  placeholder="Display Name"
+                  placeholder="Username"
                   value={name}
                   onChange={(event) => {
                      setName(event.target.value);
