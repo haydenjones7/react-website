@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const Wrapper = styled.section`
    background-color: #eeb7b3;
    height: 100%;
-   width: 500px;
+   width: 600px;
    padding: 5px;
    border: 4px solid #79C0AC;
    display: flex;

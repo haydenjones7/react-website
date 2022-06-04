@@ -4,6 +4,13 @@ import { useState } from "react";
 import { db } from '../../firebase-config';
 import { setDoc, doc } from "firebase/firestore";
 import { Wrapper, List, CreateHeading, CreateInput, CreateButton, ButtonLink, DropDown } from './createElements.js';
+import styled from "styled-components";
+
+const Check = styled(CreateInput)`
+   width: 15px;
+   height: 15px;
+   margin-bottom: 10px;
+`;
 
 const CreatePR = () => {
    const [title, setTitle] = useState("");
@@ -16,6 +23,10 @@ const CreatePR = () => {
    const [gameType, setGameType] = useState("");
    const [backPage, setBackPage] = useState(false);
    const [votingType, setVotingType] = useState("");
+   const [instructions, setInstructions] = useState("");
+   //false = public game , true = private game
+   //maybe shouldnt be a boolean?????
+   const [privacy, setPrivacy] = useState(false);
 
    const writeData = async () => {
       try {
@@ -24,7 +35,9 @@ const CreatePR = () => {
             gameAuthor: author,
             gameQuestions: questionList,
             numQuestions: numQuestions,
-            gameVotingType: votingType
+            gameVotingType: votingType,
+            gameInstructions: instructions,
+            gamePrivacy: privacy
          });
          console.log("Document written!");
          setFirstPage(true);
@@ -66,7 +79,7 @@ const CreatePR = () => {
       return(
          <div>
             <Wrapper>
-               <CreateHeading>Create Prompt/Text Response Game</CreateHeading>
+               <CreateHeading>Create Prompt/Response Game</CreateHeading>
                <form>
                   <div>
                      <CreateInput
@@ -90,6 +103,13 @@ const CreatePR = () => {
                            setNumQuestions(event.target.value);
                         }}
                      />
+                     <CreateInput
+                        type="text"
+                        placeholder="Instructions..."
+                        onChange={(event) => {
+                           setInstructions(event.target.value);
+                        }}
+                     />
                      <br/>
                      <label>
                         Pick a response type:&nbsp;
@@ -109,6 +129,16 @@ const CreatePR = () => {
                            <option value="H2H">Head to Head</option>
                            <option value="All">All at Once</option>
                         </DropDown>
+                     </label>
+                     <br/>
+                     <label>
+                        Private game?:&nbsp;
+                        <Check
+                           type="checkbox"
+                           onClick={() => {
+                              setPrivacy(true);
+                           }}
+                        />
                      </label>
                   </div>
                </form>
