@@ -12,6 +12,7 @@ import Footer from './components/Footer/footer.jsx';
 import CreateMC from './components/CreateGames/createMC';
 import CreateSA from "./components/CreateGames/createSA";
 import CreatePR from "./components/CreateGames/createPR";
+import UserGames from "./pages/userGames";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route exact path='/createMC' element={<CreateMC />}/>
             <Route exact path='/createSA' element={<CreateSA />}/>
             <Route exact path='/createPR' element={<CreatePR />}/>
+            <Route exact path='/myGames' element={<UserGames />}/>
           </Routes>
         </div>
       </div>

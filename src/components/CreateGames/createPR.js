@@ -46,7 +46,8 @@ const CreatePR = () => {
                numQuestions: numQuestions,
                gameVotingType: votingType,
                gameInstructions: instructions,
-               gamePrivacy: privacy
+               gamePrivacy: privacy,
+               gameType: gameType
             });
             console.log("Private document written!");
             setFirstPage(true);
@@ -66,7 +67,8 @@ const CreatePR = () => {
                numQuestions: numQuestions,
                gameVotingType: votingType,
                gameInstructions: instructions,
-               gamePrivacy: privacy
+               gamePrivacy: privacy,
+               gameType: gameType
             });
             console.log("Public document written!");
             await setDoc(doc(db, author, title), {
@@ -76,7 +78,8 @@ const CreatePR = () => {
                numQuestions: numQuestions,
                gameVotingType: votingType,
                gameInstructions: instructions,
-               gamePrivacy: privacy
+               gamePrivacy: privacy,
+               gameType: gameType
             });
             console.log("User document written!")
             setFirstPage(true);

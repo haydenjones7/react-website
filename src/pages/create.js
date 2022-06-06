@@ -69,9 +69,9 @@ const Create = () => {
             <PinkTitle>Create a New Game💏</PinkTitle>
             <BlackHeading>Choose a game format</BlackHeading>
             <Wrapper>
+               <PinkButton><ButtonLink to='/createPR'>Prompt/Response Game</ButtonLink></PinkButton>
                <PinkButton><ButtonLink to='/createMC'>Multiple Choice Quiz</ButtonLink></PinkButton>
                <PinkButton><ButtonLink to='/createSA'>Short Answer Quiz</ButtonLink></PinkButton>
-               <PinkButton><ButtonLink to='/createPR'>Prompt/Response Game</ButtonLink></PinkButton>
             </Wrapper>
          </div>
       );

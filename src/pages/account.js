@@ -4,14 +4,18 @@ import { useState } from "react";
 import { auth } from '../firebase-config';
 import { signOut, onAuthStateChanged, updateProfile } from 'firebase/auth';
 import { Heading, Text, Input, Button } from '../styles/PageElements.js';
-import { ClearButton, InlineButtonWrapper } from '../styles/AccountElements.js';
-
+import { ClearButton, InlineButtonWrapper, PinkButton } from '../styles/AccountElements.js';
+import UserGames from './userGames.js';
+import { db } from '../firebase-config';
+import { getDocs, collection } from "firebase/firestore";
 
 const Account = () => {
    const [user, setUser] = useState({});
    const [name, setName] = useState("");
    const [photo, setPhoto] = useState("");
    const [showUpdate, setShowUpdate] = useState(false);
+   const [showGames, setShowGames] = useState(false);
+   const [games, setGames] = useState([]);
 
    onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -35,10 +39,30 @@ const Account = () => {
       }
    };
 
+   const getUserGames = async () => {
+      try {
+         const querySnapshot = await getDocs(collection(db, user.displayName));
+         querySnapshot.forEach((doc) => {
+            var game = new Game(doc.data().gameTitle, doc.data().gameType);
+            setGames((games) => [...games,game]);
+            console.log(doc.id, "=>", doc.data());
+         });
+         setShowGames(true);
+      } catch (error) {
+         console.log("Error getting user games ", error);
+      }
+   }
+
+   function Game(title, type) {
+      this.title = title;
+      this.type = type;
+    }
+
    const handleBack = () => {
       setShowUpdate(false);
    }
 
+   //selecting profile photo
    const handleClick = a => {
       setPhoto(a);
    };
@@ -70,6 +94,12 @@ const Account = () => {
                </div>
             </div>
          );
+      } else if(showGames) {
+         return (
+            <div>
+               <UserGames games={games}/>
+            </div>
+         );
       } else {
          return (
             <div>
@@ -77,6 +107,9 @@ const Account = () => {
                <Heading>Name: {user?.displayName}</Heading>
                <Heading>Email: {user?.email}</Heading>
                <ClearButton onClick={handleShowUpdate}>Click to edit information</ClearButton>
+               <div>
+                  <PinkButton onClick={getUserGames}>My Games</PinkButton>
+               </div>
                <div>
                   <Button onClick={logout}>Sign Out</Button>
                </div>
