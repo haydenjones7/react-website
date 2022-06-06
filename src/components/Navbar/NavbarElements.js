@@ -6,6 +6,8 @@ import { FaReadme } from "react-icons/fa";
 //import { FaSignInAlt } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { FaToolbox } from "react-icons/fa";
+import { FaGamepad } from "react-icons/fa";
+import { FaQuestion } from "react-icons/fa";
 
 
 export const Nav = styled.nav`
@@ -68,6 +70,22 @@ export const ReadMe = styled(FaReadme)`
 //       display: flex;
 //    }
 // `;
+
+export const GamePad = styled(FaGamepad)`
+   display: flex;
+   color: #2B625B;
+   @media screen and (max-width: 768px) {
+      display: flex;
+   }
+`;
+
+export const Help = styled(FaQuestion)`
+   display: flex;
+   color: #2B625B;
+   @media screen and (max-width: 768px) {
+      display: flex;
+   }
+`;
 
 export const User = styled(FaUserAlt)`
    display: flex;

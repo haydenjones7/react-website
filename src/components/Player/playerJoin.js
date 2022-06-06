@@ -5,9 +5,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
 import "../../styles/PageElements.js";
-import Response from "./response.jsx";
+import Response from "./response.js";
 //import ResponseText from "./responseText.jsx";
-import ResponseMC from "./responseMC.jsx";
+import ResponseMC from "./responseMC.js";
 
 
 let socket = io.connect('https://brainbox-server.glitch.me/');
@@ -65,10 +65,11 @@ function Player() {
       } else if(type === "MC-Quiz") {
         console.log("MC");
         return <ResponseMC socket={socket} username={playerUsername} gameID={gameID} />
-      } else if(type === "Text-Quiz") {
-        console.log("Text");
-        return <ResponseText socket={socket} username={playerUsername} gameID={gameID} />
-      } else {
+      }// } else if(type === "Text-Quiz") {
+      //   console.log("Text");
+      //   return <ResponseText socket={socket} username={playerUsername} gameID={gameID} />
+      // } 
+      else {
         return(
           <div>
             Waiting

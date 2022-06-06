@@ -13,6 +13,7 @@ import CreateMC from './components/CreateGames/createMC';
 import CreateSA from "./components/CreateGames/createSA";
 import CreatePR from "./components/CreateGames/createPR";
 import UserGames from "./pages/userGames";
+import Join from "./pages/join";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route exact path='/createSA' element={<CreateSA />}/>
             <Route exact path='/createPR' element={<CreatePR />}/>
             <Route exact path='/myGames' element={<UserGames />}/>
+            <Route exact path='/join' element={<Join />}/>
           </Routes>
         </div>
       </div>

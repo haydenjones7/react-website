@@ -6,7 +6,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../../styles/PageElements.js";
-//import Canvas from "../Games/canvas.jsx";
+import Canvas from "../Games/canvas.js";
 
 //FIXME: need some way to check if the game you've joined is text or drawing response,
 // then provide the appropriate pages

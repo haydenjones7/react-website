@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Nav, NavLink, NavMenu, Bars, SearchIcon, ReadMe, User, Toolbox } from "./NavbarElements";
+import { Nav, NavLink, NavMenu, Bars, SearchIcon, ReadMe, User, Toolbox, GamePad, Help } from "./NavbarElements";
 import logo from './BBLogoTransparent.png';
 
 import { auth } from '../../firebase-config';
@@ -39,6 +39,10 @@ const Navbar = () => {
                   <ReadMe/>
                   About
                </NavLink>
+               <NavLink to="/join">
+                  <GamePad/>
+                  Join Game
+               </NavLink>
                <NavLink to="/search">
                   <SearchIcon/>
                   Search
@@ -50,6 +54,11 @@ const Navbar = () => {
                <NavLink to="/account">
                   <User/>
                   {username}
+               </NavLink>
+               <p>&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+               <NavLink to="/help">
+                  <Help/>
+                  Help
                </NavLink>
             </NavMenu>
          </Nav>

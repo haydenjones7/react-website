@@ -23,7 +23,7 @@ const CreatePR = () => {
    const [stop, setStop] = useState(false);
    const [gameType, setGameType] = useState("PTR-Game");
    const [backPage, setBackPage] = useState(false);
-   const [votingType, setVotingType] = useState("");
+   const [votingType, setVotingType] = useState("All");
    const [instructions, setInstructions] = useState("");
    //false = public game , true = private game
    //maybe shouldnt be a boolean?????
@@ -172,8 +172,8 @@ const CreatePR = () => {
                         <DropDown onChange={(event) => {
                            setVotingType(event.target.value);
                         }}>
-                           <option value="H2H">Head to Head</option>
                            <option value="All">All at Once</option>
+                           <option value="H2H">Head to Head</option>
                         </DropDown>
                      </label>
                      <br/>

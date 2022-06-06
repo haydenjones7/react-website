@@ -109,6 +109,7 @@ const Search = () => {
 
    const handleBackMain = () => {
       setHaveGames(false);
+      setGames([]);
    }
   
   
